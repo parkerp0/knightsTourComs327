@@ -51,3 +51,5 @@ tile** graphGen(int* board)
 1  0  1
 1  1  1
 */
+
+//test
