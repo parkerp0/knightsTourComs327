@@ -105,7 +105,7 @@ void edgeBuilder(tile *tile, struct tile *endpoint)
 {
     tile->jump[tile->jumpc] = endpoint;
     tile->jumpc= tile->jumpc+1;
-    printf("tile %d has %d edges\n", tile->num , tile->jumpc);
+    //printf("tile %d has %d edges\n", tile->num , tile->jumpc);
 }
 
 void solver(tile *tile, int *path, int level, int *counter)  
@@ -131,6 +131,7 @@ void solver(tile *tile, int *path, int level, int *counter)
         {
             printf("%d,", path[i]);
         }
+        printf("%d", path[level]);
         printf("\n");
     }
 
