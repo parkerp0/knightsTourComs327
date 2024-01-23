@@ -45,7 +45,7 @@ int main(int argc, char * argv[])
         for(j=0;j<boardX;j++)
         {
             //checks each move for the knight
-            printf("k = %d i = %d j = %d  \n\n",k,i,j);
+            //printf("k = %d i = %d j = %d  \n\n",k,i,j);
             if(i-2>=0 && j-1>=0)
             {
                 edgeBuilder(graph[k], graph[board[i-2][j-1]]);
@@ -125,7 +125,7 @@ void solver(tile *tile, int *path, int level, int *counter)
     if(level == boardX*boardY-1)
     {
         *counter+=1;
-        printf("%d: ",*counter);
+        //printf("%d: ",*counter);
 
         for(i=0; i<level; i++)
         {
