@@ -1,9 +1,9 @@
-typedef struct tile tile;
 
-struct tile
+
+typedef struct tile_t
 {
     int num;
     int visit;
     int jumpc;
-    tile **jump;
-};
+    struct tile **jump;
+}tile;

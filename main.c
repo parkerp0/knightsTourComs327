@@ -6,7 +6,9 @@
 #define boardX 5
 #define boardY 5
 
-void edgeBuilder(tile *tile, struct tile *endpoint);
+void edgeBuilder(tile *tile,tile *endpoint);
+
+void solver(tile *tile);
 
 int main(int argc, char * argv[])
 {
@@ -74,9 +76,9 @@ int main(int argc, char * argv[])
         }
     }
 
-    for(i=1; i<boardX*boardY; i++)//note array starts at one in order to line up with the tile labels inside of assignment directions
+    for(i=0; i<boardX*boardY; i++)
     {
-        
+        solver(graph[i]);
     }
 
     return 0;
@@ -88,4 +90,22 @@ void edgeBuilder(tile *tile, struct tile *endpoint)
     printf("tile %d has %d edges\n", tile->num , tile->jumpc);
     //tile->jump = realloc(tile->jump, sizeof(tile)*(tile->jumpc));
     tile->jump[tile->jumpc] = endpoint;
+}
+
+void solver(tile *tile)
+{
+    int i;
+    tile->visit = 1;
+    for(i=0; i<tile->jumpc; i++)
+    {
+        if(tile->jump[i]->visit == 0)
+        {
+            solver(tile->jump[i]);
+        } 
+    }
+
+    for(i=0; i<tile->jumpc; i++)
+    {
+        tile->jump[i]->visit = 0;
+    }
 }
